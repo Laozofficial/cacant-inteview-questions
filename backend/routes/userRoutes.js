@@ -10,4 +10,4 @@ router.post('/login', loginUser);
 router.get('/all-users', getAllUsers);
 router.get('/get-user-by-email/:email', authGuard, getUserByEmail);
 
-module.exports = router;
+module.exports = router; 
