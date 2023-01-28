@@ -151,10 +151,45 @@ const getUserByEmail = asyncHandler(async (req, res) => {
     res.status(400).json(response);
 });
 
+const updateUser = asyncHandler(async(req, res) => {
+    const email = req.params.email;
+    const {firstName, lastName} = req.body;
+
+    if (!email) {
+        const response = {
+            'error': 'Please fill pass in the email'
+        };
+        res.status(400).json(response);
+    }
+
+    const user = await User.findOne({
+        email
+    });
+
+    if(user) {
+        const updatedUser = await User.updateOne({'email': email}, 
+        {$set: {
+            firstName: firstName,
+            lastName: lastName
+        }});
+        const response = {
+            'successful': true,
+            'user': updatedUser
+        }
+        res.status(201).json(response);
+    }else {
+        const response = {
+            'error' : "cannot find user with email"
+        };
+        res.status(400).json(response);
+    }
+});
+
 module.exports = {
     getAllUsers,
     storeUser,
     loginUser,
     getProfile,
     getUserByEmail,
+    updateUser
 };

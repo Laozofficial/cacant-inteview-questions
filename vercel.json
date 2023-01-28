@@ -2,7 +2,7 @@
     "version": 2,
     "name": "cacant",
     "builds": [
-       { "src": "backend/server.js", "use": "@vercel/node" }
+       { "src": "backend/index.js", "use": "@vercel/node" }
     ],
     "routes": [
       {
