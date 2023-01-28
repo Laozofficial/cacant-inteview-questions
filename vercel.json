@@ -2,7 +2,12 @@
     "version": 2,
     "name": "cacant",
     "builds": [
-       { "src": "backend/index.js", "use": "@vercel/node" }
+      { "src": "*.js", "use": "@vercel/node" }
     ],
-    "rewrites": [{ "source": "/api/user/(.*)", "destination": "/" }]
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      }
+    ]
  }
