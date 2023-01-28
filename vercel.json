@@ -4,11 +4,5 @@
     "builds": [
        { "src": "backend/index.js", "use": "@vercel/node" }
     ],
-    "routes": [
-      {
-        "src": "/api/user/(.*)",
-        "dest": "/"
-      }
-    ],
     "rewrites": [{ "source": "/api/user/(.*)", "destination": "/" }]
  }
