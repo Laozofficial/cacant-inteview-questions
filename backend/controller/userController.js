@@ -102,8 +102,6 @@ const storeUser = asyncHandler(async (req, res) => {
 */
 const loginUser = asyncHandler(async (req, res) => {
 
-    res.status(200).json({'hello': 'world'});
-
     const {
         email,
         password
