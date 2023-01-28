@@ -2,16 +2,17 @@
 #Here we are getting our node as Base image
 FROM node:latest
 #Creating a new directory for app files and setting path in the container
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /backend
 #setting working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /backend
 #copying the package.json file(contains dependencies) from project source dir to container dir
-COPY package.json /usr/src/app
+COPY package.json .
 # installing the dependencies into the container
 RUN yarn install
 #copying the source code of Application into the container dir
-COPY . /usr/src/app
+COPY . .
 #container exposed network port number
-EXPOSE 5000
+#EXPOSE 5000
 #command to run within the container
-CMD ['node', 'backend/index.js']
+#CMD ['node', 'backend/index.js']
+CMD ["yarn", "start"]
