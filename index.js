@@ -8,7 +8,7 @@ const port = process.env.NODE_DOCKER_PORT || 5000;
 connectDb();
 // initialize express
 const app = express();
-// initialize middleware
+// initialize middlewar
 app.use(express.json());
 app.use('/api/user', require('./backend/routes/userRoutes'));
 
@@ -16,4 +16,4 @@ app.use('/api/user', require('./backend/routes/userRoutes'));
 
 // app.listen(port, () => console.log(`Server started on port ${port}`));
 
-module.exports = app;
+module.exports = app; 

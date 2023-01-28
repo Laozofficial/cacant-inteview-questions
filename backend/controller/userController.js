@@ -101,6 +101,9 @@ const storeUser = asyncHandler(async (req, res) => {
     @login a user and generate tokens
 */
 const loginUser = asyncHandler(async (req, res) => {
+
+    res.status(200).json({'hello': 'world'});
+
     const {
         email,
         password
