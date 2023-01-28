@@ -3,7 +3,7 @@ const colors = require('colors');
 const dotenv = require('dotenv').config();
 const connectDb = require('./config/db');
 //const port = process.env.PORT || 5000;
-const port = process.env.NODE_DOCKER_PORT || 8080;
+const port = process.env.NODE_DOCKER_PORT || 5000;
 
 connectDb();
 // initialize express
