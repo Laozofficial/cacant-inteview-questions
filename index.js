@@ -5,7 +5,7 @@ const connectDb = require('./backend/config/db');
 //const port = process.env.PORT || 5000;
 const port = process.env.NODE_DOCKER_PORT || 5000;
 
-connectDb();
+// connectDb();
 // initialize express
 const app = express();
 // initialize middlewar
