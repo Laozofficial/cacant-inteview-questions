@@ -6,8 +6,9 @@
     ],
     "routes": [
       {
-        "src": "/(.*)",
+        "src": "/api/user/(.*)",
         "dest": "/"
       }
-    ]
+    ],
+    "rewrites": [{ "source": "/api/user/(.*)", "destination": "/" }]
  }
