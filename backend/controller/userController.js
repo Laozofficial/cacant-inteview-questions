@@ -152,9 +152,12 @@ const getUserByEmail = asyncHandler(async (req, res) => {
     res.status(400).json(response);
 });
 
-const updateUser = asyncHandler(async(req, res) => {
+const updateUser = asyncHandler(async (req, res) => {
     const email = req.params.email;
-    const {firstName, lastName} = req.body;
+    const {
+        firstName,
+        lastName
+    } = req.body;
 
     if (!email) {
         const response = {
@@ -167,20 +170,23 @@ const updateUser = asyncHandler(async(req, res) => {
         email
     });
 
-    if(user) {
-        const updatedUser = await User.updateOne({'email': email}, 
-        {$set: {
-            firstName: firstName,
-            lastName: lastName
-        }});
+    if (user) {
+        const updatedUser = await User.updateOne({
+            'email': email
+        }, {
+            $set: {
+                firstName: firstName,
+                lastName: lastName
+            }
+        });
         const response = {
             'successful': true,
             'user': updatedUser
         }
         res.status(201).json(response);
-    }else {
+    } else {
         const response = {
-            'error' : "cannot find user with email"
+            'error': "cannot find user with email"
         };
         res.status(400).json(response);
     }
